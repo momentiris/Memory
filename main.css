@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: arial;
 }
 body {
   width: 100vw;
@@ -11,7 +12,20 @@ body {
   margin: 0;
 
 }
-
+.win {
+  position: absolute;
+  background-color: tomato;
+  height: 200px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease .5s;
+}
 .reset {
   margin-top: 0;
 
@@ -31,6 +45,11 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  transition: opacity 1s ease;
+}
+.container_idle {
+  opacity: 0.5;
+
 }
 
 .cards {
@@ -42,10 +61,28 @@ body {
   background: rgb(159, 218, 216);
   transition: background .2s ease, transform .2s ease;
   box-shadow: 4px 4px 4px #9b9b9b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
 }
 
 
-.cards:hover {
-    perspective: 10000px;
-  transform: scale(1.04);
+.one {
+  transform-origin: center;
+
+}
+@keyframes pulse {
+  0% {transform: scale(1)}
+  50% {transform: scale(1.04)}
+  100% {transform: scale(1)}
+}
+.cards_hover {
+  animation: pulse 1s linear infinite;
+
+}
+
+.clicked {
+  transform-origin: center;
+  transform: rotateX(180deg);
 }
