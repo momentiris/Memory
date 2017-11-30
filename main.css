@@ -1,0 +1,23 @@
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.cardcontainer {
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.cards {
+  margin: 10px;
+  width: 175px;
+  height: 175px;
+  border: 2px solid black;
+
+}
