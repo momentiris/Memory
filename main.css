@@ -24,7 +24,7 @@ body {
   z-index: 1;
   opacity: 0;
   visibility: hidden;
-  transition: opacity .3s ease .5s;
+  transition: opacity .3s ease .2s;
 }
 .reset {
   margin-top: 0;
@@ -59,19 +59,17 @@ body {
   max-width: 150px;
   max-height: 150px;
   background: rgb(159, 218, 216);
-  transition: background .2s ease, transform .2s ease;
+  transition: .3s ease;
   box-shadow: 4px 4px 4px #9b9b9b;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
-}
-
-
-.one {
-  transform-origin: center;
+  cursor: pointer;
+  position: relative;
 
 }
+
 @keyframes pulse {
   0% {transform: scale(1)}
   50% {transform: scale(1.04)}
@@ -81,8 +79,96 @@ body {
   animation: pulse 1s linear infinite;
 
 }
-
 .clicked {
   transform-origin: center;
   transform: rotateX(180deg);
+}
+
+
+@keyframes move {
+  0% {}
+  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
+
+  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
+}
+.one_clicked {
+  transform-origin: center;
+  animation: move 1s ease 1;
+}
+
+@keyframes move2 {
+  0% {}
+  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
+
+  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
+}
+.two_clicked {
+  transform-origin: center;
+  animation: move2 1s ease 1;
+}
+
+@keyframes move3 {
+  0% {}
+  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
+
+  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
+}
+.three_clicked {
+  transform-origin: center;
+  animation: move3 1s ease 1;
+}
+
+@keyframes move4 {
+  0% {}
+  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
+
+  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
+}
+.four_clicked {
+  transform-origin: center;
+  animation: move4 1s ease 1;
+}
+
+@keyframes move5 {
+  0% {}
+  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
+
+  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
+}
+.five_clicked {
+  transform-origin: center;
+  animation: move5 1s ease 1;
+}
+
+@keyframes move6 {
+  0% {}
+  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
+
+  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
+}
+.six_clicked {
+  transform-origin: center;
+  animation: move6 1s ease 1;
+}
+
+@keyframes move7 {
+  0% {}
+  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
+
+  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
+}
+.seven.clicked {
+  transform-origin: center;
+  animation: move7 1s ease 1;
+}
+
+@keyframes move8 {
+  0% {}
+  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
+
+  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
+}
+.eight.clicked {
+  transform-origin: center;
+  animation: move8 1s ease 1;
 }

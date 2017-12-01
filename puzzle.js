@@ -11,10 +11,15 @@
   let existingCards = Array.from(queryCards);
   let win = document.querySelector('.win')
 
+
   let compareUs = [];
   let divsOfData = [];
-  let dataArray = [];
+  let divsIndex = [];
   let counter = 0;
+
+  for (var i = container.children.length; i >= 0; i--) {
+    container.appendChild(container.children[Math.random() * i | 0]);
+  }
 
       //Count length of compareUs array and compare values
 
@@ -24,7 +29,7 @@
         console.log('WIN');
 
         counter++;
-        console.log(counter);
+
         if (counter == 8) {
           win.style.visibility = "visible";
           setTimeout(function(){
@@ -32,7 +37,7 @@
             container.classList.toggle('container_idle');
           }, 500)
         }
-        console.log(counter);
+
         compareUs = [];
         divsOfData = [];
 
@@ -47,7 +52,7 @@
                 compareUs = [];
         }, 400);
 
-        console.log(divsOfData[1]);
+
       }
     }
 
@@ -56,7 +61,7 @@
       //Loop through cards and carddata
       for (card of existingCards) {
       let queryCardsData = card.dataset.card;
-      dataArray.push(queryCardsData);
+
 
       //card animation
       card.addEventListener('mouseover', function(e) {
@@ -85,40 +90,69 @@
   }
 
   //NEW LOOP FOR SHUFFLING DIV order
-
+  let one = document.querySelectorAll('.one');
 
   let resetGame = document.querySelector('.reset');
   resetGame.addEventListener('click', () => {
+    divsIndex = [];
+
+    compareUs = [];
+    divsOfData = [];
+    counter = 0;
+
     win.style.opacity = "0";
     setTimeout(function(){
       win.style.visibility = "hidden";
-      container.classList.toggle('container_idle');
-    }, 500)
+      container.classList.remove('container_idle');
+    }, 1000);
+
+    let random = Math.random() * 300 + 'px';
+    let randomDeg = Math.random() * 1000 + 'deg';
+    let randomDegReset = Math.random() * 0 + 'deg';
 
     for (var i = container.children.length; i >= 0; i--) {
       container.appendChild(container.children[Math.random() * i | 0]);
+      divsIndex.push(i);
+
     }
+    console.log(divsIndex);
 
-for (var i = 0; i < existingCards.length -1; i++) {
-  let currentLeft = existingCards[i].getBoundingClientRect().left;
-  let currentTop = existingCards[i].getBoundingClientRect().top;
-  let currentRight = existingCards[i].getBoundingClientRect().right;
-  let currentBottom = existingCards[i].getBoundingClientRect().bottom;
-  let nextLeft = existingCards[i + 1].getBoundingClientRect().left;
-  let nextTop = existingCards[i + 1].getBoundingClientRect().top;
-  let nextRight = existingCards[i + 1].getBoundingClientRect().right;
-  let nextBottom = existingCards[i + 1].getBoundingClientRect().bottom;
+    setTimeout(function() {
+      for (cards of queryCards) {
 
-  existingCards[i].style.left = nextLeft + 'px';
-  existingCards[i].style.top = nextTop + 'px';
-  existingCards[i].style.right = nextRight + 'px';
-  existingCards[i].style.bottom = nextBottom + 'px';
-  existingCards[i].style.left = currentLeft + 'px';
-  existingCards[i].style.top = currentTop + 'px';
-  existingCards[i].style.right = currentRight + 'px';
-  existingCards[i].style.bottom = currentBottom + 'px';
-  console.log(i);
-}
+
+        if (cards.classList.contains('first')) {
+                cards.style.transform = `translateY(-${random}) translateX(${random}) rotate(${randomDeg})`;
+        }
+        if (cards.classList.contains('second')) {
+                cards.style.transform = `translateY(${random}) translateX(-${random}) rotate(${randomDeg})`;
+        }
+        if (cards.classList.contains('third')) {
+                cards.style.transform = `translateY(${random}) translateX(${random}) rotate(${randomDeg})`;
+        }
+        if (cards.classList.contains('fourth')) {
+                cards.style.transform = `translateY(-${random}) translateX(-${random}) rotate(${randomDeg})`;
+        }
+
+
+          cards.style.transition = "all 1s ease";
+
+                setTimeout(function() {
+                  for (cards of queryCards) {
+                    let randomReset = Math.random() * 0 + 'px';
+                    cards.style.transform = `translateY(${randomReset}) translateX(${randomReset}) rotate(${randomDegReset})`;
+                  }
+
+                }, 1000)
+      }
+
+    }, 100);
+
+
+
+
+
+
 
 
 });
