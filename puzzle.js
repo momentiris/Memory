@@ -12,6 +12,15 @@
   let win = document.querySelector('.win')
 
 
+
+
+
+  let randomDeg2 = Math.random() * 1000 + 'deg';
+  let randomDeg3 = Math.random() * 1000 + 'deg';
+  let randomDeg4 = Math.random() * 1000 + 'deg';
+  let randomDegReset = Math.random() * 0 + 'deg';
+
+
   let compareUs = [];
   let divsOfData = [];
   let divsIndex = [];
@@ -95,7 +104,6 @@
   let resetGame = document.querySelector('.reset');
   resetGame.addEventListener('click', () => {
     divsIndex = [];
-
     compareUs = [];
     divsOfData = [];
     counter = 0;
@@ -106,53 +114,30 @@
       container.classList.remove('container_idle');
     }, 1000);
 
-    let random = Math.random() * 300 + 'px';
-    let randomDeg = Math.random() * 1000 + 'deg';
-    let randomDegReset = Math.random() * 0 + 'deg';
-
     for (var i = container.children.length; i >= 0; i--) {
       container.appendChild(container.children[Math.random() * i | 0]);
       divsIndex.push(i);
-
     }
     console.log(divsIndex);
 
     setTimeout(function() {
       for (cards of queryCards) {
-
-
-        if (cards.classList.contains('first')) {
-                cards.style.transform = `translateY(-${random}) translateX(${random}) rotate(${randomDeg})`;
-        }
-        if (cards.classList.contains('second')) {
-                cards.style.transform = `translateY(${random}) translateX(-${random}) rotate(${randomDeg})`;
-        }
-        if (cards.classList.contains('third')) {
-                cards.style.transform = `translateY(${random}) translateX(${random}) rotate(${randomDeg})`;
-        }
-        if (cards.classList.contains('fourth')) {
-                cards.style.transform = `translateY(-${random}) translateX(-${random}) rotate(${randomDeg})`;
-        }
+        let random = Math.random() * -10 * 20 + 'px';
+         let random2 = Math.random() * 30 * 80 + 'px';
+         let random3 = Math.random() * 20 * -100 + 'px';
+           let randomDeg = Math.random() * 1000 + 'deg';
+               cards.style.transform = `translateZ(${random3, random, random2}) translateX(${random3, random2, random}) translateY(${random3, random2, random}) rotate(${randomDeg})`;
 
 
           cards.style.transition = "all 1s ease";
-
                 setTimeout(function() {
                   for (cards of queryCards) {
                     let randomReset = Math.random() * 0 + 'px';
                     cards.style.transform = `translateY(${randomReset}) translateX(${randomReset}) rotate(${randomDegReset})`;
                   }
-
                 }, 1000)
       }
 
     }, 100);
-
-
-
-
-
-
-
 
 });
