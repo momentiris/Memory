@@ -48,6 +48,9 @@ body {
   transition: opacity 1s ease;
   position: relative;
   perspective: 1000px;
+
+
+
 }
 .container_idle {
   opacity: 0.5;
@@ -69,6 +72,9 @@ body {
   font-size: 24px;
   cursor: pointer;
   position: relative;
+  perspective: 200px;
+
+
 
 }
 
@@ -84,6 +90,7 @@ body {
 .clicked {
   transform-origin: center;
   transform: rotateX(180deg);
+  pointer-events: none;
 }
 
 
@@ -159,10 +166,7 @@ body {
 
   100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
 }
-.seven.clicked {
-  transform-origin: center;
-  animation: move7 1s ease 1;
-}
+
 
 @keyframes move8 {
   0% {}

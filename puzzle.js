@@ -1,9 +1,4 @@
 
-// TO DO:
-        //1. Push all existing cards in to array
-        //2. When click on cards, see if match,
-        //    if no match, flip cards back over.
-        //    if match, stay flipped
 
 
   let container = document.querySelector('.cardcontainer');
@@ -11,20 +6,36 @@
   let existingCards = Array.from(queryCards);
   let win = document.querySelector('.win')
 
-
-
-
-
   let randomDeg2 = Math.random() * 1000 + 'deg';
   let randomDeg3 = Math.random() * 1000 + 'deg';
   let randomDeg4 = Math.random() * 1000 + 'deg';
   let randomDegReset = Math.random() * 0 + 'deg';
-
+  let one = document.querySelectorAll('.one');
+  let resetGame = document.querySelector('.reset');
 
   let compareUs = [];
   let divsOfData = [];
   let divsIndex = [];
   let counter = 0;
+
+function totallyRandom(element, index, array) {
+  let random = Math.random() * -10 * 20 + 'px';
+  let random2 = Math.random() * 30 * 30 + 'px';
+  let random3 = Math.random() * 10 * -100 + 'px';
+  let randomDeg = Math.random() * 1000 + 'deg';
+
+  setTimeout(function() {
+    element.style.transform = `translateZ(${random3, random, random2}) translateX(${random3, random2, random}) translateY(${random3, random2, random}) rotate(${randomDeg})`;
+    }, 100 * index);
+    card.style.transition = "all 1s ease";
+
+  setTimeout(function() {
+    setTimeout(function () {
+      element.style.cssText = "";
+    }, 100 * index)
+ }, 2000)
+};
+
 
   for (var i = container.children.length; i >= 0; i--) {
     container.appendChild(container.children[Math.random() * i | 0]);
@@ -53,24 +64,18 @@
       } else {
         console.log('LooSE');
 
-
         setTimeout(function() {
           divsOfData[0].classList.remove('clicked');
           divsOfData[1].classList.remove('clicked');
               divsOfData = [];
                 compareUs = [];
         }, 400);
-
-
       }
     }
-
   }
-
       //Loop through cards and carddata
       for (card of existingCards) {
       let queryCardsData = card.dataset.card;
-
 
       //card animation
       card.addEventListener('mouseover', function(e) {
@@ -80,7 +85,6 @@
       card.addEventListener('mouseout', function(e) {
           e.target.classList.remove('cards_hover');
       })
-
 
       // Listen for click and send card data to comparisonFunc, within loop.
     card.addEventListener('click', function(e){
@@ -99,10 +103,10 @@
   }
 
   //NEW LOOP FOR SHUFFLING DIV order
-  let one = document.querySelectorAll('.one');
 
-  let resetGame = document.querySelector('.reset');
   resetGame.addEventListener('click', () => {
+    window.alert('make cards animate from 0-16 each one')
+
     divsIndex = [];
     compareUs = [];
     divsOfData = [];
@@ -118,26 +122,9 @@
       container.appendChild(container.children[Math.random() * i | 0]);
       divsIndex.push(i);
     }
-    console.log(divsIndex);
+
 
     setTimeout(function() {
-      for (cards of queryCards) {
-        let random = Math.random() * -10 * 20 + 'px';
-         let random2 = Math.random() * 30 * 80 + 'px';
-         let random3 = Math.random() * 20 * -100 + 'px';
-           let randomDeg = Math.random() * 1000 + 'deg';
-               cards.style.transform = `translateZ(${random3, random, random2}) translateX(${random3, random2, random}) translateY(${random3, random2, random}) rotate(${randomDeg})`;
-
-
-          cards.style.transition = "all 1s ease";
-                setTimeout(function() {
-                  for (cards of queryCards) {
-                    let randomReset = Math.random() * 0 + 'px';
-                    cards.style.transform = `translateY(${randomReset}) translateX(${randomReset}) rotate(${randomDegReset})`;
-                  }
-                }, 1000)
-      }
-
-    }, 100);
-
+           queryCards.forEach(totallyRandom);
+          }, 100 );
 });
