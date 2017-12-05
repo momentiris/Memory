@@ -4,6 +4,9 @@
   let container = document.querySelector('.cardcontainer');
   let queryCards = document.querySelectorAll('.cards');
   let existingCards = Array.from(queryCards);
+  let shadow = document.querySelectorAll('.shadow');
+
+
   let win = document.querySelector('.win')
 
   let randomDeg2 = Math.random() * 1000 + 'deg';
@@ -19,35 +22,43 @@
   let counter = 0;
 
 function totallyRandom(element, index, array) {
-  let random = Math.random() * -10 * 20 + 'px';
-  let random2 = Math.random() * 30 * 30 + 'px';
-  let random3 = Math.random() * 10 * -100 + 'px';
-  let randomDeg = Math.random() * 1000 + 'deg';
+  let random = Math.random() * -10  + 'px';
+  let random2 = Math.random() * 900 + 'px';
+  let random3 = Math.random() / -10 * -100 + 'px';
+  let randomDeg = Math.random() * 700 + 'deg';
+  let randomShadow = Math.random() * 100 + 'px';
 
   setTimeout(function() {
     element.style.transform = `translateZ(${random3, random, random2}) translateX(${random3, random2, random}) translateY(${random3, random2, random}) rotate(${randomDeg})`;
-    }, 100 * index);
+
+  }, 100 * index);
     card.style.transition = "all 1s ease";
+
 
   setTimeout(function() {
     setTimeout(function () {
       element.style.cssText = "";
     }, 100 * index)
- }, 2000)
+ }, 2500)
 };
 
 
   for (var i = container.children.length; i >= 0; i--) {
     container.appendChild(container.children[Math.random() * i | 0]);
+
   }
 
       //Count length of compareUs array and compare values
 
   let comparisonFunc = (dataset) => {
+
     if (compareUs.length == 2 && divsOfData.length == 2) {
+      container.classList.add('container_clicked');
+      setTimeout(function(){
+        container.classList.remove('container_clicked');
+      }, 1000);
       if (compareUs[0] == compareUs[1]) {
         console.log('WIN');
-
         counter++;
 
         if (counter == 8) {
@@ -66,10 +77,15 @@ function totallyRandom(element, index, array) {
 
         setTimeout(function() {
           divsOfData[0].classList.remove('clicked');
+          divsOfData[0].querySelector('img').classList.remove('images_clicked');
+
           divsOfData[1].classList.remove('clicked');
-              divsOfData = [];
-                compareUs = [];
-        }, 400);
+          divsOfData[1].querySelector('img').classList.remove('images_clicked');
+          divsOfData = [];
+            compareUs = [];
+
+        }, 1000);
+
       }
     }
   }
@@ -96,21 +112,27 @@ function totallyRandom(element, index, array) {
 
       e.target.classList.remove('cards_hover');
       setTimeout(function() {
-          e.target.classList.toggle('clicked');
-      }, 100);
+          currentDiv.classList.toggle('clicked');
+          let currentImg = currentDiv.querySelector('img');
+          currentImg.classList.add('images_clicked');
+
+      }, 100 );
       return comparisonFunc(e.target.dataset.card);
+
     })
   }
 
   //NEW LOOP FOR SHUFFLING DIV order
 
   resetGame.addEventListener('click', () => {
-    window.alert('make cards animate from 0-16 each one')
-
     divsIndex = [];
     compareUs = [];
     divsOfData = [];
     counter = 0;
+
+
+
+
 
     win.style.opacity = "0";
     setTimeout(function(){
@@ -122,7 +144,6 @@ function totallyRandom(element, index, array) {
       container.appendChild(container.children[Math.random() * i | 0]);
       divsIndex.push(i);
     }
-
 
     setTimeout(function() {
            queryCards.forEach(totallyRandom);

@@ -49,12 +49,26 @@ body {
   position: relative;
   perspective: 1000px;
 
-
+}
+.cardcontainer_shadow {
+  height: auto;
+  max-height: 650px;
+  width: 650px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease;
+  position: absolute;
+  perspective: 1000px;
 
 }
 .container_idle {
   opacity: 0.5;
 
+}
+.container_clicked {
+  pointer-events:none;
 }
 
 .cards {
@@ -63,21 +77,46 @@ body {
   min-height: 125px;
   max-width: 150px;
   max-height: 150px;
-  background: rgb(159, 218, 216);
+  background: hotpink;
   transition: .3s ease;
-  box-shadow: 4px 4px 4px #9b9b9b;
+  Z-INDEX: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
   cursor: pointer;
   position: relative;
-  perspective: 200px;
-
-
 
 }
 
+.images {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  transition: .2s ease;
+  transform: rotateX(180deg);
+}
+
+.shadow {
+  margin: 10px;
+  min-width: 125px;
+  min-height: 125px;
+  max-width: 150px;
+  max-height: 150px;
+  background-color: none;
+  filter: blur(5px);
+  /*background: #b9b9b9;*/
+
+    /*box-shadow: 5px 5px 5px #b9b9b9;*/
+  transition: all 1s ease;
+}
+
+.images_clicked {
+  opacity: 1;
+
+}
 @keyframes pulse {
   0% {transform: scale(1)}
   50% {transform: scale(1.04)}
