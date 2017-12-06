@@ -10,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
+  background-color: rgb(242, 228, 154);
 
 }
 .win {
@@ -20,11 +21,21 @@ body {
   display: flex;
   justify-content: center;
   -ms-align-items: center;
+  flex-flow: column;
   align-items: center;
   z-index: 1;
   opacity: 0;
   visibility: hidden;
   transition: opacity .3s ease .2s;
+  text-align: center;
+
+}
+
+.highScore {
+  min-width: 200px;
+  position: absolute;
+  right: 5%;
+  background-color: white;;
 }
 .reset {
   margin-top: 0;
@@ -58,7 +69,7 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  transition: opacity 1s ease;
+  transition: opacity .5s ease;
   position: absolute;
   perspective: 1000px;
 
@@ -77,13 +88,14 @@ body {
   min-height: 125px;
   max-width: 150px;
   max-height: 150px;
-  background: hotpink;
+
   transition: .3s ease;
   Z-INDEX: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
+
   cursor: pointer;
   position: relative;
 
@@ -99,6 +111,20 @@ body {
   transform: rotateX(180deg);
 }
 
+.pin {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  opacity: 1;
+  transition: .2s ease;
+}
+
+.pin_clicked {
+  opacity: 0;
+
+}
+
 .shadow {
   margin: 10px;
   min-width: 125px;
@@ -109,13 +135,13 @@ body {
   filter: blur(5px);
   /*background: #b9b9b9;*/
 
-    /*box-shadow: 5px 5px 5px #b9b9b9;*/
+    box-shadow: 5px 5px 5px #b9b9b9;
   transition: all 1s ease;
 }
 
 .images_clicked {
   opacity: 1;
-
+  transition: .2s ease;
 }
 @keyframes pulse {
   0% {transform: scale(1)}
@@ -126,6 +152,7 @@ body {
   animation: pulse 1s linear infinite;
 
 }
+
 .clicked {
   transform-origin: center;
   transform: rotateX(180deg);
