@@ -27,20 +27,16 @@
     '56',
     '48',
     '72',
-
   ].sort();
 
-
   let highScore = document.querySelector('.highScore').querySelector('ol');
-
+  for (highScores of highScoreCount) {
+    highScore.innerHTML += `<li> ${highScores} clicks </li>`;
+  }
 
   console.log(highScoreCount);
 
-  window.addEventListener('domready',function() {
-  	$(document.body).addEvent('mousemove',function(e) {
-  		this.setStyle('background-position',[e.page.x - 250,e.page.y - 250]);
-  	});
-  });
+
 
 function totallyRandom(element, index, array) {
   let random = Math.random() * -10  + 'px';
@@ -71,22 +67,26 @@ function totallyRandom(element, index, array) {
     totalClicks++;
     if (compareUs.length == 2 && divsOfData.length == 2) {
       if (compareUs[0] == compareUs[1]) {
-
         pairCounter++;
 
-
-        if (pairCounter == 8) {
+        if (pairCounter == 2) {
           win.style.visibility = "visible";
           highScoreCount.push(totalClicks);
           console.log(highScoreCount);
+          console.log(highScoreCount);
           let congrats = `Congratulations! You scored ${pairCounter} pairs with a total of ${totalClicks} clicks.`;
           win.innerHTML += congrats;
-          highScore
+
+
+            highScore.innerHTML += `<li> ${totalClicks} clicks </li>`;
+
+
+
+
+
           setTimeout(function(){
             win.style.opacity = "1";
             container.classList.toggle('container_idle');
-
-
           }, 500)
         }
 

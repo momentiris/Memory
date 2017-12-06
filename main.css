@@ -11,6 +11,10 @@ body {
   align-items: center;
   margin: 0;
   background-color: rgb(242, 228, 154);
+  background-image: url(images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
 }
 .win {
@@ -30,12 +34,32 @@ body {
   text-align: center;
 
 }
-
+.headerwrap {
+  display: flex;
+  width: 100vw;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
 .highScore {
   min-width: 200px;
-  position: absolute;
+
   right: 5%;
-  background-color: white;;
+
+
+}
+.highScore > h4 {
+  margin: 0;
+
+}
+ol {
+  margin: 0;
+  padding-left: 1rem;
+
+}
+ li {
+
+  font-size: 12px;
 }
 .reset {
   margin-top: 0;
@@ -45,7 +69,7 @@ body {
 }
 
 .reset:hover {
-  color: rgb(159,218,216);
+  color: #7D2B1E;
 }
 
 .cardcontainer {
