@@ -42,29 +42,56 @@ function totallyRandom(element, index, array) {
  }, 2500)
 };
 
+let clearRound = (cards) => {
+  setTimeout(function() {
+    for (divs of divsOfData) {
+      divs.classList.remove('clicked');
+      divs.querySelector('.images').classList.remove('images_clicked');
+      divs.querySelector('.pin').classList.remove('pin_clicked');
+    }
+    divsOfData = [];
+    compareUs = [];
+  }, 700);
+}
+
   let shuffleBoard = () => {
+    divsIndex = [];
+    compareUs = [];
+    divsOfData = [];
+    totalClicks = 0;
+    pairCounter = 0;
+
+    win.style.opacity = "0";
+    setTimeout(function(){
+      win.style.visibility = "hidden";
+      container.classList.remove('container_idle');
+    }, 5);
+
     for (var i = container.children.length; i >= 0; i--) {
       container.appendChild(container.children[Math.random() * i | 0]);
     }
+    for (cards of queryCards) {
+      cards.querySelector('.pin').classList.remove('pin_clicked');
+      cards.classList.remove('clicked');
+    }
+
   }
+  shuffleBoard(container);
+
       //Count length of compareUs array and compare values
   let comparisonFunc = (dataset) => {
     totalClicks++;
     if (compareUs.length == 2 && divsOfData.length == 2) {
       if (compareUs[0] == compareUs[1]) {
         pairCounter++;
-
-        if (pairCounter == 8) {
+        if (pairCounter == 1 ) {
           win.style.visibility = "visible";
           highScoreCount.push(totalClicks);
-          console.log(highScoreCount);
-          console.log(highScoreCount);
           let congrats = `Congratulations! You scored ${pairCounter} pairs with a total of ${totalClicks} clicks.`;
           win.innerHTML += congrats;
           for (highScores of highScoreCount) {
             highScore.innerHTML += `<li> ${totalClicks} clicks </li>`;
           }
-
           setTimeout(function(){
             win.style.opacity = "1";
             container.classList.toggle('container_idle');
@@ -80,18 +107,7 @@ function totallyRandom(element, index, array) {
           container.classList.remove('container_clicked');
         }, 700);
 
-        setTimeout(function() {
-          divsOfData [0].classList.remove('clicked');
-          divsOfData[0].querySelector('.images').classList.remove('images_clicked');
-            divsOfData[0].querySelector('.pin').classList.remove('pin_clicked');
-          divsOfData[1].classList.remove('clicked');
-          divsOfData[1].querySelector('.images').classList.remove('images_clicked');
-          divsOfData[1].querySelector('.pin').classList.remove('pin_clicked');
-
-
-          divsOfData = [];
-          compareUs = [];
-        }, 700);
+        return clearRound();
       }
     }
   }
@@ -122,38 +138,13 @@ function totallyRandom(element, index, array) {
           currentPin.classList.add('pin_clicked');
       }, 50 );
       return comparisonFunc(e.target.dataset.card);
-
     })
   }
-
-  //NEW LOOP FOR SHUFFLING DIV order
-
+//reset game
   resetGame.addEventListener('click', () => {
-    divsIndex = [];
-    compareUs = [];
-    divsOfData = [];
-    totalClicks = 0;
-    pairCounter = 0;
-    for (divs of queryCards) {
-      divs.querySelector('img').classList.remove('images_clicked');
-    }
-
-    win.style.opacity = "0";
-    setTimeout(function(){
-      win.style.visibility = "hidden";
-      container.classList.remove('container_idle');
-    }, 5);
-
-    for (cards of queryCards) {
-      cards.querySelector('.pin').classList.remove('pin_clicked');
-      cards.classList.remove('clicked');
-    }
-
     setTimeout(function() {
            queryCards.forEach(totallyRandom);
           }, 100 );
-
     return shuffleBoard();
+    return clearRound();
 });
-
-shuffleBoard(container);
