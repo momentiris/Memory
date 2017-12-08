@@ -1,14 +1,14 @@
 let container = document.querySelector('.cardcontainer');
 let queryCards = document.querySelectorAll('.cards');
+let shadow = document.querySelector('.cardcontainer_shadow');
 
 let existingCards = Array.from(queryCards);
-let shadow = document.querySelectorAll('.shadow');
+
 let win = document.querySelector('.win');
 
 let resetGame = document.querySelector('.reset');
 let compareUs = [];
 let divsOfData = [];
-let divsIndex = [];
 let pairCounter = 0;
 
   //High score
@@ -19,29 +19,47 @@ let highScoreCount = [
   '72',
 ].sort();
 
+let newGame = () => {
+  shadow.style.opacity = "0";
+  queryCards.forEach(function(card, index) {
+    card.style.opacity = "0";
+  setTimeout(function() {
+    card.style.opacity = "1";
+  }, 100 * index);
+  })
+
+
+}
+
+  
+
+newGame();
+
 let highScore = document.querySelector('.highScore').querySelector('ol');
 for (highScores of highScoreCount) {
   highScore.innerHTML += `<li> ${highScores} clicks </li>`;
 }
-
+//This function animates card on hit "play again" button.
 function totallyRandom(element, index, array) {
-  let random = Math.random() * -10  + 'px';
+  let random = Math.random() * -100  + 'px';
   let random2 = Math.random() * 900 + 'px';
-  let random3 = Math.random() / -10 * -100 + 'px';
-  let randomDeg = Math.random() * 700 + 'deg';
+  let random3 = Math.random() / -100 * -400 + 'px';
+  let randomDeg = Math.random() * 1500 + 'deg';
   let randomShadow = Math.random() * 100 + 'px';
 
   setTimeout(function() {
     element.style.transform = `translateZ(${random3, random, random2}) translateX(${random3, random2, random}) translateY(${random3, random2, random}) rotate(${randomDeg})`;
-  }, 100 * index);
+  }, 75 * index);
     card.style.transition = "all 1s ease";
   setTimeout(function() {
     setTimeout(function () {
       element.style.cssText = "";
     }, 100 * index)
- }, 2500)
+ }, 1500)
 };
 
+
+//This function clears all arrays of datavalues and shuffles card order in the DOM
 let clearRound = (cards) => {
   setTimeout(function() {
     for (divs of divsOfData) {
@@ -53,14 +71,11 @@ let clearRound = (cards) => {
     compareUs = [];
   }, 700);
 }
-
   let shuffleBoard = () => {
-    divsIndex = [];
     compareUs = [];
     divsOfData = [];
     totalClicks = 0;
     pairCounter = 0;
-
     win.style.opacity = "0";
     setTimeout(function(){
       win.style.visibility = "hidden";
@@ -87,17 +102,16 @@ let clearRound = (cards) => {
         if (pairCounter == 1 ) {
           win.style.visibility = "visible";
           highScoreCount.push(totalClicks);
-          let congrats = `Congratulations! You scored ${pairCounter} pairs with a total of ${totalClicks} clicks.`;
+          let congrats = `Congratulations! You completed the game with a total of ${totalClicks} clicks.`;
           win.innerHTML += congrats;
           for (highScores of highScoreCount) {
-            highScore.innerHTML += `<li> ${totalClicks} clicks </li>`;
+            highScore.innerHTML += `<li> ${highScores} clicks </li>`;
           }
           setTimeout(function(){
             win.style.opacity = "1";
             container.classList.toggle('container_idle');
           }, 500)
         }
-
         compareUs = [];
         divsOfData = [];
 
@@ -140,7 +154,8 @@ let clearRound = (cards) => {
       return comparisonFunc(e.target.dataset.card);
     })
   }
-//reset game
+
+//reset game. returns shuffleboard, totallyrandom and clearround function.
   resetGame.addEventListener('click', () => {
     setTimeout(function() {
            queryCards.forEach(totallyRandom);

@@ -157,8 +157,8 @@ ol {
   background-color: none;
   filter: blur(5px);
   /*background: #b9b9b9;*/
-
-    box-shadow: 5px 5px 5px #b9b9b9;
+  
+    box-shadow: 5px 5px 5px #000000;
   transition: all 1s ease;
 }
 
@@ -166,13 +166,9 @@ ol {
   opacity: 1;
   transition: .2s ease;
 }
-@keyframes pulse {
-  0% {transform: scale(1)}
-  50% {transform: scale(1.04)}
-  100% {transform: scale(1)}
-}
+
 .cards_hover {
-  animation: pulse 1s linear infinite;
+  transform: scale(1.05);
 
 }
 
@@ -180,90 +176,4 @@ ol {
   transform-origin: center;
   transform: rotateX(180deg);
   pointer-events: none;
-}
-
-
-@keyframes move {
-  0% {}
-  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
-
-  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
-}
-.one_clicked {
-  transform-origin: center;
-  animation: move 1s ease 1;
-}
-
-@keyframes move2 {
-  0% {}
-  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
-
-  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
-}
-.two_clicked {
-  transform-origin: center;
-  animation: move2 1s ease 1;
-}
-
-@keyframes move3 {
-  0% {}
-  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
-
-  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
-}
-.three_clicked {
-  transform-origin: center;
-  animation: move3 1s ease 1;
-}
-
-@keyframes move4 {
-  0% {}
-  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
-
-  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
-}
-.four_clicked {
-  transform-origin: center;
-  animation: move4 1s ease 1;
-}
-
-@keyframes move5 {
-  0% {}
-  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
-
-  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
-}
-.five_clicked {
-  transform-origin: center;
-  animation: move5 1s ease 1;
-}
-
-@keyframes move6 {
-  0% {}
-  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
-
-  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
-}
-.six_clicked {
-  transform-origin: center;
-  animation: move6 1s ease 1;
-}
-
-@keyframes move7 {
-  0% {}
-  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
-
-  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
-}
-
-
-@keyframes move8 {
-  0% {}
-  60%  {transform: translateX(200px) translateY(-100px) rotate(520deg)}
-
-  100% {transform: translateX(0px) translateY(0px) rotate(0deg)}
-}
-.eight.clicked {
-  transform-origin: center;
-  animation: move8 1s ease 1;
 }
