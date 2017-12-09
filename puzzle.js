@@ -21,6 +21,7 @@ let highScoreCount = [
 
 let newGame = () => {
   shadow.style.opacity = "0";
+  setTimeout(function(){
   queryCards.forEach(function(card, index) {
     card.style.opacity = "0";
   setTimeout(function() {
@@ -28,10 +29,10 @@ let newGame = () => {
   }, 100 * index);
   })
 
+}, 500)
 
 }
 
-  
 
 newGame();
 
