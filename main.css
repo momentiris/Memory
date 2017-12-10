@@ -2,6 +2,7 @@
   box-sizing: border-box;
   font-family: arial;
 }
+
 body {
   width: 100vw;
   height: 100vh;
@@ -15,8 +16,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
 }
+
 .win {
   position: absolute;
   background-color: tomato;
@@ -32,34 +33,36 @@ body {
   visibility: hidden;
   transition: opacity .3s ease .2s;
   text-align: center;
-
 }
+
 .headerwrap {
   display: flex;
   width: 90vw;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-
 }
-.highScore {
 
-}
+.highScore {}
 
 .github {
   width: 50px;
   height: 50px;
 }
-.highScore > h4 {
+
+.highScore>h4 {
   margin: 0;
 }
+
 ol {
   margin: 0;
   padding-left: 1rem;
 }
- li {
+
+li {
   font-size: 12px;
 }
+
 .reset {
   margin-top: 0;
   cursor: pointer;
@@ -82,8 +85,8 @@ ol {
   transition: opacity 1s ease;
   position: relative;
   perspective: 1000px;
-
 }
+
 .cardcontainer_shadow {
   height: auto;
   max-height: 650px;
@@ -95,14 +98,14 @@ ol {
   transition: opacity .5s ease;
   position: absolute;
   perspective: 1000px;
-
 }
+
 .container_idle {
   opacity: 0.5;
-
 }
+
 .container_clicked {
-  pointer-events:none;
+  pointer-events: none;
 }
 
 .cards {
@@ -118,10 +121,8 @@ ol {
   align-items: center;
   justify-content: center;
   font-size: 24px;
-
   cursor: pointer;
   position: relative;
-
 }
 
 .images {
@@ -145,7 +146,6 @@ ol {
 
 .pin_clicked {
   opacity: 0;
-
 }
 
 .shadow {
@@ -157,8 +157,7 @@ ol {
   background-color: none;
   filter: blur(5px);
   /*background: #b9b9b9;*/
-
-    box-shadow: 5px 5px 5px #000000;
+  box-shadow: 5px 5px 5px #000000;
   transition: all 1s ease;
 }
 
@@ -169,7 +168,6 @@ ol {
 
 .cards_hover {
   transform: scale(1.05);
-
 }
 
 .clicked {
