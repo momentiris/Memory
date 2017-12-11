@@ -1,5 +1,5 @@
 let newGame = () => {
-  shadow.style.opacity = "0";
+
   queryCards.forEach(function(card, index) {
     card.style.opacity = "0";
     setTimeout(function() {
@@ -72,9 +72,9 @@ let comparisonFunc = (dataset) => {
         highScoreCount.push(totalClicks);
         let congrats = `Congratulations! You completed the game with a total of ${totalClicks} clicks.`;
         win.innerHTML += congrats;
-        for (highScores of highScoreCount) {
+
           highScore.innerHTML += `<li> ${totalClicks} clicks </li>`;
-        }
+
         setTimeout(function() {
           win.style.opacity = "1";
           container.classList.toggle('container_idle');
