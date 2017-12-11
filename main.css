@@ -136,18 +136,6 @@ li {
   opacity: 0;
 }
 
-.shadow {
-  margin: 10px;
-  min-width: 125px;
-  min-height: 125px;
-  max-width: 150px;
-  max-height: 150px;
-  background-color: none;
-  filter: blur(5px);
-  /*background: #b9b9b9;*/
-  box-shadow: 5px 5px 5px #000000;
-  transition: all 1s ease;
-}
 
 .images_clicked {
   opacity: 1;
