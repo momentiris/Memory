@@ -14,6 +14,10 @@ You install this game by downloading this Repository to your local storage, then
 
 I just want to thank everyone at stack overflow, whos questions and answers has helped me tremendously over the past few lifetimes of my career.
 
+## Testing
+
+Testing done by two of my classmates, Christopher Mattson and Sebastian Palm. xoxo.
+
 ## License
 
 MIT License
